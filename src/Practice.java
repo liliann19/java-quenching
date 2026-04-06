@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -58,7 +59,7 @@ public class Practice {
      * 
      * Example:
      *   Input: a -> x -> a -> a -> x -> y
-     *   Output: {a:3, x:2, y: 1}
+     *   Output: {a:3, x:2, y:1}
      * 
      * Returns an empty map if head is null
      * 
@@ -127,27 +128,84 @@ public class Practice {
     }
 
     /**
-     * Returns the sum of all the vertices in a graph that are reachable from a given
-     * starting vertex.
+     * Returns the sum of all the nodes in a non-binary tree.
      * 
-     * Returns 0 if the starting vertex is null.
+     * Returns 0 if the root is null.
      * 
-     * @param start the starting vertex
-     * @return the sum of all the vertices
+     * @param root the root of the tree
+     * @return the sum of all the tree's values
      */
-    public static int graphSum(Vertex<Integer> start) {
+    public static int nbSum(TreeNode<Integer> root) {
         return 0;
     }
 
     /**
-     * Returns the count of vertices in a graph that have an outdegree of 0.
+     * Returns the count of nodes in a non-binary tree that are only children, EXCLUDING the root.
      * 
-     * Returns 0 if the starting vertex is null.
+     * In other words, how many nodes in the tree do NOT have siblings, NOT INCLUDING THE ROOT.
      * 
-     * @param start the entrypoint to the graph
-     * @return the count of vertices with outdegree 0
+     * Example:
+     *           A
+     *       /   |   \
+     *      B    C     D
+     *     /    / \    |
+     *    E    F   X   G
+     *                  \
+     *                   H
+     * 
+     * Only children: E, G, and H
+     * - E is an only child because B has exactly one child
+     * - G is an only child because D has exactly one child
+     * - H is an only child because G has exactly one child
+     * - A is NOT counted because the root is excluded
+     * 
+     * Result: 3
+     * 
+     * 
+     * Returns 0 if the root is null.
+     * 
+     * @param root the root of the tree
+     * @return the count of nodes that do not have siblings, EXCLUDING THE ROOT
      */
-    public static int sinkCount(Vertex<Integer> start) {
+    public static int onlyChildCount(TreeNode<?> root) {
+        return 0;
+    }
+
+    /**
+     * Returns the maximum depth of the tree.
+     * 
+     * Example map:
+     * {
+     *   A=[B, C, D],
+     *   B=[E, F],
+     *   D=[G],
+     *   G=[H]
+     * }
+     * 
+     * Tree represented by the map:
+     *          A
+     *       /  |  \
+     *      B   C   D
+     *     / \      |
+     *    E   F     G
+     *               \
+     *                H
+     * 
+     * The longest path from the root to a leaf is:
+     * A -> D -> G -> H
+     * 
+     * So the maximum depth is 4.
+     * 
+     * A tree with only a root would have a depth of 1.
+     * 
+     * The tree is represented as a map of parent values to lists of children.
+     * 
+     * @param <T> the type of the data in the tree
+     * @param tree a map of parent values to lists of children
+     * @param root the root value of the tree
+     * @return the depth of the tree, or 0 if the tree is null or the root is not present in the tree
+     */
+    public static <T> int maxDepth(Map<T, List<T>> tree, T root) {
         return 0;
     }
 }
